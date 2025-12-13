@@ -193,4 +193,29 @@
   .cursor-pointer {
     cursor: pointer;
   }
+
+  /* Consistent scrollbar styling */
+  * {
+    scrollbar-width: thin;
+    scrollbar-color: var(--color-muted-teal-500) var(--color-mint-cream-200);
+  }
+
+  *::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+
+  *::-webkit-scrollbar-track {
+    background: var(--color-mint-cream-200);
+  }
+
+  *::-webkit-scrollbar-thumb {
+    background: var(--color-muted-teal-500);
+    border-radius: 9999px;
+    border: 2px solid var(--color-mint-cream-200);
+  }
+
+  *::-webkit-scrollbar-thumb:hover {
+    background: var(--color-muted-teal-600);
+  }
 }
