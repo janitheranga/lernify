@@ -1,8 +1,14 @@
 "use client";
 
 import * as React from "react";
-import { motion } from "motion/react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import {
+  ResponsiveContainer,
+  PieChart,
+  Pie,
+  Tooltip as RTooltip,
+  Cell,
+} from "recharts";
 
 interface DoughnutChartProps {
   title: string;
@@ -11,11 +17,17 @@ interface DoughnutChartProps {
     value: number;
     color: string;
   }[];
+  metricLabel?: string;
+  formatter?: (value: number) => string;
 }
 
-export function DoughnutChart({ title, data }: DoughnutChartProps) {
+export function DoughnutChart({
+  title,
+  data,
+  metricLabel = "Value",
+  formatter = (v) => v.toString(),
+}: DoughnutChartProps) {
   const total = data.reduce((sum, item) => sum + item.value, 0);
-  let currentAngle = 0;
 
   return (
     <Card>
@@ -24,39 +36,30 @@ export function DoughnutChart({ title, data }: DoughnutChartProps) {
       </CardHeader>
       <CardContent>
         <div className="flex flex-col lg:flex-row items-center gap-6">
-          {/* Chart */}
-          <div className="relative w-54 h-54">
-            <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
-              {data.map((item, index) => {
-                const percentage = (item.value / total) * 100;
-                const circumference = 2 * Math.PI * 35;
-                const strokeDasharray = `${
-                  (percentage / 100) * circumference
-                } ${circumference}`;
-                const rotation = currentAngle;
-                currentAngle += percentage * 3.6;
-
-                return (
-                  <motion.circle
-                    key={item.label}
-                    cx="50"
-                    cy="50"
-                    r="35"
-                    fill="none"
-                    stroke={item.color}
-                    strokeWidth="15"
-                    strokeDasharray={strokeDasharray}
-                    style={{
-                      transformOrigin: "50% 50%",
-                      transform: `rotate(${rotation}deg)`,
-                    }}
-                    initial={{ strokeDasharray: `0 ${circumference}` }}
-                    animate={{ strokeDasharray }}
-                    transition={{ duration: 1, delay: index * 0.2 }}
-                  />
-                );
-              })}
-            </svg>
+          <div className="relative w-52 h-52">
+            <ResponsiveContainer width="100%" height="100%">
+              <PieChart>
+                <Pie
+                  data={data}
+                  dataKey="value"
+                  nameKey="label"
+                  innerRadius={60}
+                  outerRadius={85}
+                  paddingAngle={2}
+                >
+                  {data.map((entry, index) => (
+                    <Cell key={`cell-${index}`} fill={entry.color} />
+                  ))}
+                </Pie>
+                <RTooltip
+                  contentStyle={{ borderRadius: 8 }}
+                  formatter={(value: any, name: any) => [
+                    `${metricLabel} : ${formatter(Number(value))}`,
+                    String(name),
+                  ]}
+                />
+              </PieChart>
+            </ResponsiveContainer>
             <div className="absolute inset-0 flex items-center justify-center">
               <div className="text-center">
                 <p className="text-2xl font-bold">{total}</p>
@@ -65,15 +68,11 @@ export function DoughnutChart({ title, data }: DoughnutChartProps) {
             </div>
           </div>
 
-          {/* Legend */}
           <div className="flex-1 space-y-3">
             {data.map((item, index) => (
-              <motion.div
+              <div
                 key={item.label}
                 className="flex items-center justify-between"
-                initial={{ opacity: 0, x: -20 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ delay: index * 0.1 }}
               >
                 <div className="flex items-center gap-2">
                   <div
@@ -83,7 +82,7 @@ export function DoughnutChart({ title, data }: DoughnutChartProps) {
                   <span className="text-sm">{item.label}</span>
                 </div>
                 <span className="text-sm font-semibold">{item.value}</span>
-              </motion.div>
+              </div>
             ))}
           </div>
         </div>

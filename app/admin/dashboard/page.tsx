@@ -206,6 +206,8 @@ function DashboardOverview() {
               },
               { label: "New", value: 734, color: "var(--color-old-gold-500)" },
             ]}
+            metricLabel="Users"
+            formatter={(v) => v.toLocaleString()}
           />
         </motion.div>
       </div>
@@ -566,6 +568,8 @@ function AnalyticsSection() {
               color: "var(--color-mint-cream-500)",
             },
           ]}
+          metricLabel="Revenue"
+          formatter={(v) => `$${v.toLocaleString()}`}
         />
       </div>
     </div>

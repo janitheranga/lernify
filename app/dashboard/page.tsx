@@ -202,6 +202,8 @@ function OverviewSection() {
                 color: "var(--color-dark-slate-grey-300)",
               },
             ]}
+            metricLabel="Courses"
+            formatter={(v) => v.toLocaleString()}
           />
         </motion.div>
       </div>
@@ -514,6 +516,8 @@ function ProgressSection() {
               color: "var(--color-mint-cream-500)",
             },
           ]}
+          metricLabel="Skills"
+          formatter={(v) => `${v}%`}
         />
       </div>
 
