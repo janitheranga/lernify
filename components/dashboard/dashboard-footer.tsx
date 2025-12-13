@@ -7,7 +7,7 @@ export function DashboardFooter() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-white border-t border-border py-6 mt-auto">
+    <footer className="bg-white border border-border rounded-xl py-6 mt-auto">
       <div className="container mx-auto px-4">
         <motion.div
           className="text-center text-sm text-muted-foreground"

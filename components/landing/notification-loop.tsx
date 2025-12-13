@@ -26,7 +26,7 @@ export function NotificationLoop() {
 
   return (
     <div
-      className="bg-gradient-to-r from-[var(--color-muted-teal-600)] to-[var(--color-frosted-mint-600)] text-white py-2 overflow-hidden"
+      className="bg-linear-to-r from-(--color-muted-teal-600) to-(--color-frosted-mint-600) text-white py-2 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >

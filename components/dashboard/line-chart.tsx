@@ -49,7 +49,7 @@ export function LineChart({
         <div className="w-full overflow-x-auto">
           <svg
             viewBox={`0 0 ${chartWidth} ${chartHeight}`}
-            className="w-full h-48"
+            className="w-full h-52"
             preserveAspectRatio="none"
           >
             {/* Grid lines */}

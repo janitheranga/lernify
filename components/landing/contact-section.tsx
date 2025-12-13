@@ -38,7 +38,7 @@ export function ContactSection() {
   return (
     <section
       id="contact"
-      className="py-20 bg-gradient-to-b from-transparent to-[var(--color-dark-slate-grey-50)]"
+      className="py-20 bg-linear-to-b from-transparent to-(--color-dark-slate-grey-50)"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -47,7 +47,7 @@ export function ContactSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-[var(--color-frosted-mint-200)] to-[var(--color-old-gold-200)] rounded-full text-sm font-semibold text-[var(--color-dark-slate-grey-800)] mb-4">
+          <span className="inline-block px-4 py-2 bg-linear-to-r from-(--color-frosted-mint-200) to-(--color-old-gold-200) rounded-full text-sm font-semibold text-(--color-dark-slate-grey-800) mb-4">
             Get In Touch
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -79,7 +79,7 @@ export function ContactSection() {
               className="flex items-start gap-4 group cursor-pointer"
               whileHover={{ x: 10 }}
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)] flex items-center justify-center">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-linear-to-br from-(--color-muted-teal-500) to-(--color-frosted-mint-500) flex items-center justify-center">
                 <Mail className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -93,7 +93,7 @@ export function ContactSection() {
               className="flex items-start gap-4 group cursor-pointer"
               whileHover={{ x: 10 }}
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-frosted-mint-500)] to-[var(--color-old-gold-500)] flex items-center justify-center">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-linear-to-br from-(--color-frosted-mint-500) to-(--color-old-gold-500) flex items-center justify-center">
                 <Phone className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -107,7 +107,7 @@ export function ContactSection() {
               className="flex items-start gap-4 group cursor-pointer"
               whileHover={{ x: 10 }}
             >
-              <div className="flex-shrink-0 w-12 h-12 rounded-xl bg-gradient-to-br from-[var(--color-old-gold-500)] to-[var(--color-muted-teal-500)] flex items-center justify-center">
+              <div className="shrink-0 w-12 h-12 rounded-xl bg-linear-to-br from-(--color-old-gold-500) to-(--color-muted-teal-500) flex items-center justify-center">
                 <MapPin className="w-6 h-6 text-white" />
               </div>
               <div>
@@ -120,22 +120,20 @@ export function ContactSection() {
             <div className="pt-8">
               <h4 className="font-semibold mb-4">Follow Us</h4>
               <div className="flex gap-4">
-                {socials.map(
-                  (social, key) => (
-                    <motion.a
-                      key={key}
-                      href={`#${social.name.toLowerCase()}`}
-                      className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)] flex items-center justify-center text-white hover:shadow-lg transition-shadow cursor-pointer"
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                    >
-                      <span className="sr-only">{social.name}</span>
-                      <span className="text-sm font-bold uppercase">
-                        {<social.icon className="w-5 h-5" />}
-                      </span>
-                    </motion.a>
-                  )
-                )}
+                {socials.map((social, key) => (
+                  <motion.a
+                    key={key}
+                    href={`#${social.name.toLowerCase()}`}
+                    className="w-10 h-10 rounded-full bg-linear-to-br from-(--color-muted-teal-500) to-(--color-frosted-mint-500) flex items-center justify-center text-white hover:shadow-lg transition-shadow cursor-pointer"
+                    whileHover={{ scale: 1.1 }}
+                    whileTap={{ scale: 0.95 }}
+                  >
+                    <span className="sr-only">{social.name}</span>
+                    <span className="text-sm font-bold uppercase">
+                      {<social.icon className="w-5 h-5" />}
+                    </span>
+                  </motion.a>
+                ))}
               </div>
             </div>
           </motion.div>
@@ -182,7 +180,7 @@ export function ContactSection() {
                   <Textarea
                     id="message"
                     placeholder="Tell us more about your inquiry..."
-                    className="min-h-[150px]"
+                    className="min-h-37.5"
                     required
                   />
                 </div>

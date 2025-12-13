@@ -54,11 +54,11 @@ export function Header({ onLoginClick }: HeaderProps) {
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[var(--color-muted-teal-600)] to-[var(--color-frosted-mint-600)] p-2 rounded-lg"
+              className="bg-linear-to-br from-(--color-muted-teal-600) to-(--color-frosted-mint-600) p-2 rounded-lg"
             >
               <GraduationCap className="w-6 h-6 text-white" />
             </motion.div>
-            <span className="text-xl font-bold bg-gradient-to-r from-[var(--color-muted-teal-700)] to-[var(--color-frosted-mint-700)] bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-linear-to-r from-(--color-muted-teal-700) to-(--color-frosted-mint-700) bg-clip-text text-transparent">
               Lernify
             </span>
           </Link>
@@ -72,7 +72,7 @@ export function Header({ onLoginClick }: HeaderProps) {
                 className="text-sm font-medium text-foreground/80 hover:text-foreground transition-colors cursor-pointer relative group"
               >
                 {item.label}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-[var(--color-muted-teal-600)] to-[var(--color-frosted-mint-600)] transition-all group-hover:w-full" />
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-linear-to-r from-(--color-muted-teal-600) to-(--color-frosted-mint-600) transition-all group-hover:w-full" />
               </Link>
             ))}
           </nav>

@@ -62,7 +62,7 @@ export function PricingSection() {
   return (
     <section
       id="pricing"
-      className="py-20 bg-gradient-to-b from-transparent to-[var(--color-dark-slate-grey-50)]"
+      className="py-20 bg-linear-to-b from-transparent to-(--color-dark-slate-grey-50)"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -71,7 +71,7 @@ export function PricingSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-[var(--color-frosted-mint-200)] to-[var(--color-old-gold-200)] rounded-full text-sm font-semibold text-[var(--color-dark-slate-grey-800)] mb-4">
+          <span className="inline-block px-4 py-2 bg-linear-to-r from-(--color-frosted-mint-200) to-(--color-old-gold-200) rounded-full text-sm font-semibold text-(--color-dark-slate-grey-800) mb-4">
             Pricing Plans
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -96,7 +96,7 @@ export function PricingSection() {
             >
               {plan.popular && (
                 <div className="absolute -top-4 left-1/2 -translate-x-1/2 z-10">
-                  <span className="inline-flex items-center gap-1 px-4 py-1 bg-gradient-to-r from-[var(--color-muted-teal-600)] to-[var(--color-frosted-mint-600)] text-white text-sm font-semibold rounded-full shadow-lg">
+                  <span className="inline-flex items-center gap-1 px-4 py-1 bg-linear-to-r from-(--color-muted-teal-600) to-(--color-frosted-mint-600) text-white text-sm font-semibold rounded-full shadow-lg">
                     <Sparkles className="w-4 h-4" />
                     Most Popular
                   </span>
@@ -106,8 +106,8 @@ export function PricingSection() {
               <div
                 className={`bg-white rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all border-2 cursor-pointer ${
                   plan.popular
-                    ? "border-[var(--color-muted-teal-500)] ring-4 ring-[var(--color-muted-teal-100)]"
-                    : "border-transparent hover:border-[var(--color-muted-teal-200)]"
+                    ? "border-(--color-muted-teal-500) ring-4 ring-(--color-muted-teal-100)"
+                    : "border-transparent hover:border-(--color-muted-teal-200)"
                 }`}
               >
                 <div className="text-center mb-6">
@@ -116,7 +116,7 @@ export function PricingSection() {
                     {plan.description}
                   </p>
                   <div className="flex items-end justify-center gap-1">
-                    <span className="text-5xl font-bold bg-gradient-to-r from-[var(--color-muted-teal-700)] to-[var(--color-frosted-mint-700)] bg-clip-text text-transparent">
+                    <span className="text-5xl font-bold bg-linear-to-r from-(--color-muted-teal-700) to-(--color-frosted-mint-700) bg-clip-text text-transparent">
                       {plan.price}
                     </span>
                     {plan.price !== "Free" && (
@@ -130,7 +130,7 @@ export function PricingSection() {
                 <ul className="space-y-4 mb-8">
                   {plan.features.map((feature) => (
                     <li key={feature} className="flex items-start gap-3">
-                      <div className="flex-shrink-0 w-5 h-5 rounded-full bg-gradient-to-br from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)] flex items-center justify-center mt-0.5">
+                      <div className="shrink-0 w-5 h-5 rounded-full bg-linear-to-br from-(--color-muted-teal-500) to-(--color-frosted-mint-500) flex items-center justify-center mt-0.5">
                         <Check className="w-3 h-3 text-white" />
                       </div>
                       <span className="text-sm text-foreground">{feature}</span>
@@ -160,7 +160,7 @@ export function PricingSection() {
             Need a custom solution?{" "}
             <a
               href="#contact"
-              className="text-[var(--color-muted-teal-700)] hover:underline cursor-pointer font-medium"
+              className="text-(--color-muted-teal-700) hover:underline cursor-pointer font-medium"
             >
               Contact our sales team
             </a>

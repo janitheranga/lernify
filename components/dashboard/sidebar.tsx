@@ -21,7 +21,7 @@ export function Sidebar({ items, activeItem, onItemClick }: SidebarProps) {
 
   return (
     <motion.aside
-      className="h-full bg-white border-r border-border sticky top-16 px-2 py-4"
+      className="h-full bg-white border my-4 border-border rounded-xl sticky top-16 px-2 py-4"
       animate={{
         width: isCollapsed ? 80 : 240,
       }}
@@ -57,7 +57,7 @@ export function Sidebar({ items, activeItem, onItemClick }: SidebarProps) {
                 className={cn(
                   "w-full flex items-center gap-3 px-3 py-3 rounded-lg transition-all cursor-pointer",
                   isActive
-                    ? "bg-gradient-to-r from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)] text-white shadow-md"
+                    ? "bg-linear-to-r from-(--color-muted-teal-500) to-(--color-frosted-mint-500) text-white shadow-md"
                     : "hover:bg-accent text-foreground"
                 )}
                 initial={{ opacity: 0, x: -20 }}
@@ -65,7 +65,7 @@ export function Sidebar({ items, activeItem, onItemClick }: SidebarProps) {
                 transition={{ delay: index * 0.05 }}
                 whileHover={{ x: 5 }}
               >
-                <Icon className="w-5 h-5 flex-shrink-0" />
+                <Icon className="w-5 h-5 shrink-0" />
                 <AnimatePresence>
                   {!isCollapsed && (
                     <motion.span

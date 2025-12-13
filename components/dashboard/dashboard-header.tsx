@@ -43,7 +43,7 @@ export function DashboardHeader({ userType }: DashboardHeaderProps) {
 
   return (
     <motion.header
-      className="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-lg shadow-sm"
+      className="sticky top-0 z-40 w-full bg-white/80 backdrop-blur-lg shadow-sm border border-border rounded-xl"
       initial={{ y: -100 }}
       animate={{ y: 0 }}
       transition={{ type: "spring", stiffness: 100, damping: 20 }}
@@ -58,15 +58,15 @@ export function DashboardHeader({ userType }: DashboardHeaderProps) {
             <motion.div
               whileHover={{ rotate: 360 }}
               transition={{ duration: 0.6 }}
-              className="bg-gradient-to-br from-[var(--color-muted-teal-600)] to-[var(--color-frosted-mint-600)] p-2 rounded-lg"
+              className="bg-linear-to-br from-(--color-muted-teal-600) to-(--color-frosted-mint-600) p-2 rounded-lg"
             >
               <GraduationCap className="w-6 h-6 text-white" />
             </motion.div>
-            <span className="text-xl font-bold bg-gradient-to-r from-[var(--color-muted-teal-700)] to-[var(--color-frosted-mint-700)] bg-clip-text text-transparent">
+            <span className="text-xl font-bold bg-linear-to-r from-(--color-muted-teal-700) to-(--color-frosted-mint-700) bg-clip-text text-transparent">
               Lernify
             </span>
             {userType === "admin" && (
-              <span className="text-xs px-2 py-1 bg-gradient-to-r from-[var(--color-old-gold-500)] to-[var(--color-old-gold-600)] text-white rounded-full">
+              <span className="text-xs px-2 py-1 bg-linear-to-r from-(--color-old-gold-500) to-(--color-old-gold-600) text-white rounded-full">
                 Admin
               </span>
             )}
@@ -141,7 +141,7 @@ export function DashboardHeader({ userType }: DashboardHeaderProps) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
               >
-                <div className="w-8 h-8 rounded-full bg-gradient-to-br from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)] flex items-center justify-center text-white font-semibold">
+                <div className="w-8 h-8 rounded-full bg-linear-to-br from-(--color-muted-teal-500) to-(--color-frosted-mint-500) flex items-center justify-center text-white font-semibold">
                   <User className="w-5 h-5" />
                 </div>
                 <ChevronDown className="w-4 h-4" />

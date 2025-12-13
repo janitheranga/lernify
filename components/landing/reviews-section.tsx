@@ -121,12 +121,12 @@ interface ReviewCardProps {
 
 function ReviewCard({ review }: ReviewCardProps) {
   return (
-    <div className="flex-shrink-0 w-[350px] bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all cursor-pointer">
+    <div className="shrink-0 w-87.5 bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all cursor-pointer">
       <div className="flex gap-1 mb-4">
         {[...Array(review.rating)].map((_, i) => (
           <Star
             key={i}
-            className="w-5 h-5 fill-[var(--color-old-gold-500)] text-[var(--color-old-gold-500)]"
+            className="w-5 h-5 fill-(--color-old-gold-500) text-(--color-old-gold-500)"
           />
         ))}
       </div>
@@ -170,7 +170,7 @@ export function ReviewsSection() {
   };
 
   return (
-    <section className="py-20 bg-gradient-to-b from-[var(--color-dark-slate-grey-50)] to-transparent overflow-hidden">
+    <section className="py-20 bg-linear-to-b from-(--color-dark-slate-grey-50) to-transparent overflow-hidden">
       <div className="container mx-auto px-4 mb-16">
         <motion.div
           className="text-center"
@@ -178,7 +178,7 @@ export function ReviewsSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-[var(--color-frosted-mint-200)] to-[var(--color-old-gold-200)] rounded-full text-sm font-semibold text-[var(--color-dark-slate-grey-800)] mb-4">
+          <span className="inline-block px-4 py-2 bg-linear-to-r from-(--color-frosted-mint-200) to-(--color-old-gold-200) rounded-full text-sm font-semibold text-(--color-dark-slate-grey-800) mb-4">
             Student Success Stories
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">

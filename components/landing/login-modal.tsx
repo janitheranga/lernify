@@ -46,7 +46,7 @@ export function LoginModal({ isOpen, onClose }: LoginModalProps) {
             initial={{ scale: 0 }}
             animate={{ scale: 1 }}
             transition={{ type: "spring", delay: 0.1 }}
-            className="inline-flex items-center justify-center w-16 h-16 bg-gradient-to-br from-[var(--color-muted-teal-600)] to-[var(--color-frosted-mint-600)] rounded-2xl mb-4"
+            className="inline-flex items-center justify-center w-16 h-16 bg-linear-to-br from-(--color-muted-teal-600) to-(--color-frosted-mint-600) rounded-2xl mb-4"
           >
             <GraduationCap className="w-8 h-8 text-white" />
           </motion.div>

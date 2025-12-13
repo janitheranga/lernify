@@ -77,7 +77,7 @@ export function HeroSection() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
           >
-            <span className="inline-block px-4 py-2 bg-gradient-to-r from-[var(--color-frosted-mint-200)] to-[var(--color-old-gold-200)] rounded-full text-sm font-semibold text-[var(--color-dark-slate-grey-800)] mb-4">
+            <span className="inline-block px-4 py-2 bg-linear-to-r from-(--color-frosted-mint-200) to-(--color-old-gold-200) rounded-full text-sm font-semibold text-(--color-dark-slate-grey-800) mb-4">
               🚀 New Learning Experience
             </span>
           </motion.div>
@@ -89,7 +89,7 @@ export function HeroSection() {
             transition={{ delay: 0.3 }}
           >
             Transform Your Future with{" "}
-            <span className="bg-gradient-to-r from-[var(--color-muted-teal-700)] to-[var(--color-frosted-mint-700)] bg-clip-text text-transparent">
+            <span className="bg-linear-to-r from-(--color-muted-teal-700) to-(--color-frosted-mint-700) bg-clip-text text-transparent">
               Lernify
             </span>
           </motion.h1>
@@ -127,14 +127,14 @@ export function HeroSection() {
             transition={{ delay: 0.6 }}
           >
             <div>
-              <p className="text-2xl font-bold text-[var(--color-muted-teal-700)]">
+              <p className="text-2xl font-bold text-(--color-muted-teal-700)">
                 50K+
               </p>
               <p className="text-sm text-muted-foreground">Active Students</p>
             </div>
             <div className="w-px h-12 bg-border" />
             <div>
-              <p className="text-2xl font-bold text-[var(--color-frosted-mint-700)]">
+              <p className="text-2xl font-bold text-(--color-frosted-mint-700)">
                 200+
               </p>
               <p className="text-sm text-muted-foreground">Expert Courses</p>
@@ -153,7 +153,7 @@ export function HeroSection() {
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8 }}
         >
-          <div className="relative h-[400px] md:h-[500px] rounded-3xl overflow-hidden shadow-2xl">
+          <div className="relative h-100 md:h-125 rounded-3xl overflow-hidden shadow-2xl">
             {images.map((image, index) => (
               <motion.div
                 key={index}
@@ -170,7 +170,7 @@ export function HeroSection() {
                   alt={image.alt}
                   className="w-full h-full object-cover"
                 />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-linear-to-t from-black/60 via-transparent to-transparent" />
                 <div className="absolute bottom-24 left-8 right-8">
                   <motion.p
                     className="text-white text-xl font-semibold"
@@ -217,7 +217,7 @@ export function HeroSection() {
             }}
           >
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)] rounded-xl flex items-center justify-center text-white font-bold text-xl">
+              <div className="w-12 h-12 bg-linear-to-br from-(--color-muted-teal-500) to-(--color-frosted-mint-500) rounded-xl flex items-center justify-center text-white font-bold text-xl">
                 A+
               </div>
               <div>
@@ -240,7 +240,7 @@ export function HeroSection() {
             }}
           >
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 bg-gradient-to-br from-[var(--color-old-gold-500)] to-[var(--color-frosted-mint-500)] rounded-xl flex items-center justify-center">
+              <div className="w-12 h-12 bg-linear-to-br from-(--color-old-gold-500) to-(--color-frosted-mint-500) rounded-xl flex items-center justify-center">
                 <Play className="w-6 h-6 text-white" />
               </div>
               <div>

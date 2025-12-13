@@ -4,7 +4,13 @@ import * as React from "react";
 import Link from "next/link";
 import { motion } from "motion/react";
 import { GraduationCap, Mail, Phone, MapPin } from "lucide-react";
-import { FaSquareXTwitter, FaLinkedin, FaSquareInstagram, FaSquareYoutube, FaSquareFacebook } from "react-icons/fa6";
+import {
+  FaSquareXTwitter,
+  FaLinkedin,
+  FaSquareInstagram,
+  FaSquareYoutube,
+  FaSquareFacebook,
+} from "react-icons/fa6";
 
 const footerLinks = {
   product: [
@@ -34,18 +40,18 @@ const footerLinks = {
 };
 
 const socials = [
-    { icon: FaSquareXTwitter, name: "X" },
-    { icon: FaSquareFacebook, name: "Facebook" },
-    { icon: FaLinkedin, name: "LinkedIn" },
-    { icon: FaSquareInstagram, name: "Instagram" },
-    { icon: FaSquareYoutube, name: "YouTube" },
-]
+  { icon: FaSquareXTwitter, name: "X" },
+  { icon: FaSquareFacebook, name: "Facebook" },
+  { icon: FaLinkedin, name: "LinkedIn" },
+  { icon: FaSquareInstagram, name: "Instagram" },
+  { icon: FaSquareYoutube, name: "YouTube" },
+];
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   return (
-    <footer className="bg-gradient-to-b from-[var(--color-dark-slate-grey-50)] to-[var(--color-dark-slate-grey-100)] pt-16 pb-8">
+    <footer className="bg-linear-to-b from-(--color-dark-slate-grey-50) to-(--color-dark-slate-grey-100) pt-16 pb-8">
       <div className="container mx-auto px-4">
         <div className="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
           {/* Brand Section */}
@@ -62,11 +68,11 @@ export function Footer() {
               <motion.div
                 whileHover={{ rotate: 360 }}
                 transition={{ duration: 0.6 }}
-                className="bg-gradient-to-br from-[var(--color-muted-teal-600)] to-[var(--color-frosted-mint-600)] p-2 rounded-lg"
+                className="bg-linear-to-br from-(--color-muted-teal-600) to-(--color-frosted-mint-600) p-2 rounded-lg"
               >
                 <GraduationCap className="w-6 h-6 text-white" />
               </motion.div>
-              <span className="text-xl font-bold bg-gradient-to-r from-[var(--color-muted-teal-700)] to-[var(--color-frosted-mint-700)] bg-clip-text text-transparent">
+              <span className="text-xl font-bold bg-linear-to-r from-(--color-muted-teal-700) to-(--color-frosted-mint-700) bg-clip-text text-transparent">
                 Lernify
               </span>
             </Link>
@@ -120,7 +126,7 @@ export function Footer() {
                   <li key={link.href}>
                     <Link
                       href={link.href}
-                      className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer inline-block hover:translate-x-1 transition-transform"
+                      className="text-sm text-muted-foreground hover:text-foreground transition cursor-pointer inline-block hover:translate-x-1"
                     >
                       {link.label}
                     </Link>
@@ -151,19 +157,17 @@ export function Footer() {
             whileInView={{ opacity: 1 }}
             viewport={{ once: true }}
           >
-            {socials.map(
-              (social, key) => (
-                <motion.a
-                  key={key}
-                  href={`#${social.name.toLowerCase()}`}
-                  className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
-                  whileHover={{ scale: 1.1 }}
-                  whileTap={{ scale: 0.95 }}
-                >
-                  {<social.icon className="w-6 h-6" />}
-                </motion.a>
-              )
-            )}
+            {socials.map((social, key) => (
+              <motion.a
+                key={key}
+                href={`#${social.name.toLowerCase()}`}
+                className="text-sm text-muted-foreground hover:text-foreground transition-colors cursor-pointer"
+                whileHover={{ scale: 1.1 }}
+                whileTap={{ scale: 0.95 }}
+              >
+                {<social.icon className="w-6 h-6" />}
+              </motion.a>
+            ))}
           </motion.div>
         </div>
       </div>

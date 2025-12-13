@@ -63,7 +63,7 @@ export default function UserDashboard() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col m-4">
       <DashboardHeader userType="user" />
 
       <div className="flex flex-1">
@@ -73,7 +73,7 @@ export default function UserDashboard() {
           onItemClick={setActiveSection}
         />
 
-        <main className="flex-1 p-6 bg-gradient-to-br from-[var(--color-mint-cream-50)] to-[var(--color-dark-slate-grey-50)]">
+        <main className="flex-1 p-6 bg-linear-to-br from-(--color-mint-cream-50) to-(--color-dark-slate-grey-50)">
           {renderContent()}
         </main>
       </div>
@@ -144,7 +144,7 @@ function OverviewSection() {
                     <p className="text-3xl font-bold">{stat.value}</p>
                   </div>
                   <div
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}
+                    className={`w-12 h-12 rounded-xl bg-linear-to-br ${stat.color} flex items-center justify-center`}
                   >
                     <stat.icon className="w-6 h-6 text-white" />
                   </div>
@@ -231,7 +231,7 @@ function OverviewSection() {
               ].map((course, index) => (
                 <motion.div
                   key={course.title}
-                  className="bg-gradient-to-br from-white to-[var(--color-mint-cream-100)] rounded-lg p-4 hover:shadow-md transition-all cursor-pointer"
+                  className="bg-linear-to-br from-white to-(--color-mint-cream-100) rounded-lg p-4 hover:shadow-md transition-all cursor-pointer"
                   whileHover={{ scale: 1.02 }}
                   initial={{ opacity: 0, y: 20 }}
                   animate={{ opacity: 1, y: 0 }}
@@ -239,9 +239,9 @@ function OverviewSection() {
                 >
                   <h4 className="font-semibold mb-2">{course.title}</h4>
                   <div className="flex items-center gap-2 mb-3">
-                    <div className="flex-1 h-2 bg-[var(--color-dark-slate-grey-200)] rounded-full overflow-hidden">
+                    <div className="flex-1 h-2 bg-(--color-dark-slate-grey-200) rounded-full overflow-hidden">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)]"
+                        className="h-full bg-linear-to-r from-(--color-muted-teal-500) to-(--color-frosted-mint-500)"
                         initial={{ width: 0 }}
                         animate={{ width: `${course.progress}%` }}
                         transition={{ duration: 1, delay: 0.8 + index * 0.1 }}
@@ -330,9 +330,9 @@ function CoursesSection() {
                       <span>Progress</span>
                       <span className="font-semibold">{course.progress}%</span>
                     </div>
-                    <div className="h-2 bg-[var(--color-dark-slate-grey-200)] rounded-full overflow-hidden">
+                    <div className="h-2 bg-(--color-dark-slate-grey-200) rounded-full overflow-hidden">
                       <motion.div
-                        className="h-full bg-gradient-to-r from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)]"
+                        className="h-full bg-linear-to-r from-(--color-muted-teal-500) to-(--color-frosted-mint-500)"
                         initial={{ width: 0 }}
                         animate={{ width: `${course.progress}%` }}
                         transition={{ duration: 1, delay: index * 0.1 }}
@@ -388,10 +388,10 @@ function LearningPathSection() {
                 <div
                   className={`w-10 h-10 rounded-full flex items-center justify-center ${
                     step.status === "completed"
-                      ? "bg-gradient-to-br from-[var(--color-frosted-mint-500)] to-[var(--color-frosted-mint-600)]"
+                      ? "bg-linear-to-br from-(--color-frosted-mint-500) to-(--color-frosted-mint-600)"
                       : step.status === "in-progress"
-                      ? "bg-gradient-to-br from-[var(--color-old-gold-500)] to-[var(--color-old-gold-600)]"
-                      : "bg-[var(--color-dark-slate-grey-300)]"
+                      ? "bg-linear-to-br from-(--color-old-gold-500) to-(--color-old-gold-600)"
+                      : "bg-(--color-dark-slate-grey-300)"
                   }`}
                 >
                   {step.status === "completed" && (
@@ -445,7 +445,7 @@ function CertificatesSection() {
             transition={{ delay: index * 0.1 }}
           >
             <Card className="hover:shadow-xl transition-all cursor-pointer">
-              <div className="h-40 bg-gradient-to-br from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-600)] flex items-center justify-center relative overflow-hidden">
+              <div className="h-40 bg-linear-to-br from-(--color-muted-teal-500) to-(--color-frosted-mint-600) flex items-center justify-center relative overflow-hidden">
                 <Award className="w-16 h-16 text-white/20 absolute" />
                 <Award className="w-12 h-12 text-white z-10" />
               </div>

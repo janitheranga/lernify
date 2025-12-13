@@ -58,7 +58,7 @@ export function FeaturesSection() {
   return (
     <section
       id="features"
-      className="py-20 bg-gradient-to-b from-[var(--color-dark-slate-grey-50)] to-transparent"
+      className="py-20 bg-linear-to-b from-(--color-dark-slate-grey-50) to-transparent"
     >
       <div className="container mx-auto px-4">
         <motion.div
@@ -67,7 +67,7 @@ export function FeaturesSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
         >
-          <span className="inline-block px-4 py-2 bg-gradient-to-r from-[var(--color-frosted-mint-200)] to-[var(--color-old-gold-200)] rounded-full text-sm font-semibold text-[var(--color-dark-slate-grey-800)] mb-4">
+          <span className="inline-block px-4 py-2 bg-linear-to-r from-(--color-frosted-mint-200) to-(--color-old-gold-200) rounded-full text-sm font-semibold text-(--color-dark-slate-grey-800) mb-4">
             Why Choose Us
           </span>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">
@@ -90,16 +90,16 @@ export function FeaturesSection() {
               whileHover={{ y: -10 }}
               className="group"
             >
-              <div className="bg-white rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all border border-transparent hover:border-[var(--color-muted-teal-200)] cursor-pointer">
+              <div className="bg-white rounded-2xl p-8 h-full shadow-lg hover:shadow-2xl transition-all border border-transparent hover:border-(--color-muted-teal-200) cursor-pointer">
                 <motion.div
-                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-gradient-to-br ${feature.color} mb-6`}
+                  className={`inline-flex items-center justify-center w-16 h-16 rounded-2xl bg-linear-to-br ${feature.color} mb-6`}
                   whileHover={{ rotate: 360 }}
                   transition={{ duration: 0.6 }}
                 >
                   <feature.icon className="w-8 h-8 text-white" />
                 </motion.div>
 
-                <h3 className="text-xl font-bold mb-3 group-hover:text-[var(--color-muted-teal-700)] transition-colors">
+                <h3 className="text-xl font-bold mb-3 group-hover:text-(--color-muted-teal-700) transition-colors">
                   {feature.title}
                 </h3>
 

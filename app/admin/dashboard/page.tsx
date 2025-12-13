@@ -67,7 +67,7 @@ export default function AdminDashboard() {
   };
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col m-4">
       <DashboardHeader userType="admin" />
 
       <div className="flex flex-1">
@@ -77,7 +77,7 @@ export default function AdminDashboard() {
           onItemClick={setActiveSection}
         />
 
-        <main className="flex-1 p-6 bg-linear-to-br from-[var(--color-mint-cream-50)] to-[var(--color-dark-slate-grey-50)]">
+        <main className="flex-1 p-6 bg-linear-to-br from-(--color-mint-cream-50) to-(--color-dark-slate-grey-50)">
           {renderContent()}
         </main>
       </div>
@@ -146,7 +146,7 @@ function DashboardOverview() {
               <CardContent className="p-6">
                 <div className="flex items-center justify-between mb-4">
                   <div
-                    className={`w-12 h-12 rounded-xl bg-gradient-to-br ${stat.color} flex items-center justify-center`}
+                    className={`w-12 h-12 rounded-xl bg-linear-to-br ${stat.color} flex items-center justify-center`}
                   >
                     <stat.icon className="w-6 h-6 text-white" />
                   </div>
@@ -256,7 +256,7 @@ function DashboardOverview() {
                   whileHover={{ x: 5 }}
                 >
                   <div className="flex items-center gap-3">
-                    <div className="w-10 h-10 rounded-full bg-gradient-to-br from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-500)] flex items-center justify-center text-white font-semibold">
+                    <div className="w-10 h-10 rounded-full bg-linear-to-br from-(--color-muted-teal-500) to-(--color-frosted-mint-500) flex items-center justify-center text-white font-semibold">
                       {activity.user[0]}
                     </div>
                     <div>
@@ -331,7 +331,7 @@ function UsersSection() {
         <CardContent className="p-0">
           <div className="overflow-x-auto">
             <table className="w-full">
-              <thead className="bg-[var(--color-dark-slate-grey-100)]">
+              <thead className="bg-(--color-dark-slate-grey-100)">
                 <tr>
                   <th className="text-left p-4 font-semibold">Name</th>
                   <th className="text-left p-4 font-semibold">Email</th>
@@ -344,7 +344,7 @@ function UsersSection() {
                 {users.map((user, index) => (
                   <motion.tr
                     key={user.id}
-                    className="border-b hover:bg-[var(--color-mint-cream-100)] transition-colors cursor-pointer"
+                    className="border-b hover:bg-(--color-mint-cream-100) transition-colors cursor-pointer"
                     initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
@@ -438,7 +438,7 @@ function CoursesManagement() {
             transition={{ delay: index * 0.1 }}
           >
             <Card className="hover:shadow-lg transition-shadow cursor-pointer">
-              <div className="h-32 bg-gradient-to-br from-[var(--color-muted-teal-500)] to-[var(--color-frosted-mint-600)]" />
+              <div className="h-32 bg-linear-to-br from-(--color-muted-teal-500) to-(--color-frosted-mint-600)" />
               <CardContent className="p-4">
                 <h3 className="font-semibold mb-2">Course Title {course}</h3>
                 <p className="text-sm text-muted-foreground mb-4">
@@ -506,7 +506,7 @@ function ContentManagement() {
             {[1, 2, 3].map((video) => (
               <div
                 key={video}
-                className="aspect-video bg-[var(--color-dark-slate-grey-200)] rounded-lg flex items-center justify-center hover:bg-[var(--color-dark-slate-grey-300)] transition-colors cursor-pointer"
+                className="aspect-video bg-(--color-dark-slate-grey-200) rounded-lg flex items-center justify-center hover:bg-(--color-dark-slate-grey-300) transition-colors cursor-pointer"
               >
                 <Activity className="w-12 h-12 text-muted-foreground" />
               </div>

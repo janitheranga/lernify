@@ -25,7 +25,7 @@ export function DoughnutChart({ title, data }: DoughnutChartProps) {
       <CardContent>
         <div className="flex flex-col lg:flex-row items-center gap-6">
           {/* Chart */}
-          <div className="relative w-48 h-48">
+          <div className="relative w-54 h-54">
             <svg viewBox="0 0 100 100" className="w-full h-full -rotate-90">
               {data.map((item, index) => {
                 const percentage = (item.value / total) * 100;

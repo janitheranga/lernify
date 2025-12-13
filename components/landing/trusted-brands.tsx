@@ -42,7 +42,7 @@ export function TrustedBrands() {
   const [isPaused, setIsPaused] = React.useState(false);
 
   return (
-    <section className="py-16 bg-gradient-to-b from-transparent to-[var(--color-dark-slate-grey-50)] overflow-hidden">
+    <section className="py-16 bg-linear-to-b from-transparent to-(--color-dark-slate-grey-50) overflow-hidden">
       <div className="container mx-auto px-4 mb-12">
         <motion.div
           className="text-center"
@@ -87,7 +87,7 @@ export function TrustedBrands() {
             {[...brands, ...brands, ...brands].map((brand, index) => (
               <motion.div
                 key={`${brand.name}-${index}`}
-                className="flex-shrink-0 w-32 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer grayscale hover:grayscale-0"
+                className="shrink-0 w-32 h-20 flex items-center justify-center bg-white rounded-xl shadow-sm hover:shadow-md transition-all cursor-pointer grayscale hover:grayscale-0"
                 whileHover={{ scale: 1.05 }}
               >
                 <img
@@ -101,8 +101,8 @@ export function TrustedBrands() {
         </div>
 
         {/* Gradient Overlays */}
-        <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-[var(--color-dark-slate-grey-50)] to-transparent pointer-events-none" />
-        <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-[var(--color-dark-slate-grey-50)] to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 left-0 w-24 bg-linear-to-r from-(--color-dark-slate-grey-50) to-transparent pointer-events-none" />
+        <div className="absolute inset-y-0 right-0 w-24 bg-linear-to-l from-(--color-dark-slate-grey-50) to-transparent pointer-events-none" />
       </div>
     </section>
   );
