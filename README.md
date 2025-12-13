@@ -1,36 +1,124 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Lernify - Modern Learning Management System
+
+A comprehensive, modern Learning Management System built with Next.js, Tailwind CSS 4, Shadcn UI, and Motion animations.
+
+## Features
+
+### Landing Page
+
+- **Notification Loop**: Animated notification banner with special offers
+- **Glassmorphism Header**: Sticky header with smooth animations
+- **Login Modal**: Beautiful animated modal with user/admin login options
+- **Hero Section**: Mouse-reactive animations with image slider
+- **Trusted Brands**: Infinite scrolling brand logos
+- **Features Section**: 6 feature cards with icons and animations
+- **Pricing Section**: 3 pricing tiers with all features
+- **Customer Reviews**: 3 rows of scrolling testimonials (alternating directions)
+- **Contact Form**: Two-column contact section with form and info
+- **Footer**: Comprehensive footer with links and copyright
+
+### User Dashboard
+
+- **Collapsible Sidebar**: Smooth animations with icons and labels
+- **Overview**: Stats cards, charts (Line & Doughnut), and progress tracking
+- **My Courses**: Grid of enrolled courses with progress bars
+- **Learning Path**: Step-by-step learning progression
+- **Certificates**: Display earned certificates
+- **Progress**: Detailed analytics and achievements
+- **Settings**: Profile management and preferences
+
+### Admin Dashboard
+
+- **User Management**: Table with user data and actions
+- **Course Management**: Create and manage courses
+- **Content Management**: Video library and resources
+- **Analytics**: Charts and performance metrics
+- **Revenue**: Financial overview and transactions
+- **Settings**: Platform configuration
+
+### 404 Page
+
+- Custom not found page with animated SVG illustration
+- Quick links to popular sections
+
+## Tech Stack
+
+- **Framework**: Next.js 16
+- **Styling**: Tailwind CSS 4
+- **Animations**: Motion (Framer Motion)
+- **UI Components**: Shadcn UI
+- **Icons**: Lucide React
+- **Language**: TypeScript
 
 ## Getting Started
 
 First, run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
 pnpm dev
-# or
-bun dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Navigation
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Public Routes
 
-## Learn More
+- `/` - Landing page
+- `/404` - Not found page
 
-To learn more about Next.js, take a look at the following resources:
+### User Routes
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `/dashboard` - User dashboard (accessible after login as Student)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Admin Routes
 
-## Deploy on Vercel
+- `/admin/dashboard` - Admin dashboard (accessible after login as Admin)
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Login Functionality
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+The login modal allows switching between Student and Admin roles:
+
+- **Student Login**: Routes to `/dashboard`
+- **Admin Login**: Routes to `/admin/dashboard`
+
+## Key Features
+
+### Animations
+
+- Smooth page transitions
+- Mouse-reactive elements
+- Infinite scrolling loops
+- Chart animations
+- Hover effects on all interactive elements
+
+### Accessibility
+
+- Semantic HTML
+- ARIA labels
+- Keyboard navigation
+- Screen reader support
+- Focus indicators
+
+### Responsive Design
+
+- Mobile-first approach
+- Tablet optimized
+- Desktop enhanced
+- Collapsible navigation
+
+## Customization
+
+### Colors
+
+Edit `app/globals.css` to modify the custom color variables (Mint Cream, Dark Slate Grey, Muted Teal, Frosted Mint, Old Gold).
+
+### Content
+
+- Landing page: `app/page.tsx`
+- User dashboard: `app/dashboard/page.tsx`
+- Admin dashboard: `app/admin/dashboard/page.tsx`
+
+## License
+
+MIT
