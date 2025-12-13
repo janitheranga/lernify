@@ -36,8 +36,8 @@ export function DoughnutChart({
       </CardHeader>
       <CardContent>
         <div className="flex flex-col lg:flex-row items-center gap-6">
-          <div className="relative w-52 h-52">
-            <ResponsiveContainer width="100%" height="100%">
+          <div className="relative w-52 h-52 z-10">
+            <ResponsiveContainer width={208} height={208}>
               <PieChart>
                 <Pie
                   data={data}
@@ -53,14 +53,15 @@ export function DoughnutChart({
                 </Pie>
                 <RTooltip
                   contentStyle={{ borderRadius: 8 }}
+                  wrapperStyle={{ zIndex: 50 }}
                   formatter={(value: any, name: any) => [
-                    `${metricLabel} : ${formatter(Number(value))}`,
-                    String(name),
+                    formatter(Number(value)),
+                    metricLabel,
                   ]}
                 />
               </PieChart>
             </ResponsiveContainer>
-            <div className="absolute inset-0 flex items-center justify-center">
+            <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
               <div className="text-center">
                 <p className="text-2xl font-bold">{total}</p>
                 <p className="text-xs text-muted-foreground">Total</p>
