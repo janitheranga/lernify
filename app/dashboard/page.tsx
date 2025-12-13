@@ -173,6 +173,8 @@ function OverviewSection() {
               { label: "Sat", value: 9 },
               { label: "Sun", value: 6 },
             ]}
+            metricLabel="Hours"
+            formatter={(v) => `${v}h`}
           />
         </motion.div>
 
@@ -488,6 +490,8 @@ function ProgressSection() {
             { label: "Jun", value: 32 },
           ]}
           color="var(--color-frosted-mint-600)"
+          metricLabel="Hours"
+          formatter={(v) => `${v}h`}
         />
 
         <DoughnutChart

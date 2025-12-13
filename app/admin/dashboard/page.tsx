@@ -181,6 +181,8 @@ function DashboardOverview() {
               { label: "May", value: 4100 },
               { label: "Jun", value: 5000 },
             ]}
+            metricLabel="Users"
+            formatter={(v) => v.toLocaleString()}
           />
         </motion.div>
 
@@ -536,6 +538,8 @@ function AnalyticsSection() {
             { label: "Week 4", value: 220 },
           ]}
           color="var(--color-muted-teal-600)"
+          metricLabel="Enrollments"
+          formatter={(v) => v.toLocaleString()}
         />
 
         <DoughnutChart
@@ -616,6 +620,8 @@ function RevenueSection() {
           { label: "Jun", value: 52000 },
         ]}
         color="var(--color-old-gold-600)"
+        metricLabel="Revenue"
+        formatter={(v) => `$${v.toLocaleString()}`}
       />
     </div>
   );

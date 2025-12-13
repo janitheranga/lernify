@@ -11,12 +11,16 @@ interface LineChartProps {
     value: number;
   }[];
   color?: string;
+  metricLabel?: string;
+  formatter?: (value: number) => string;
 }
 
 export function LineChart({
   title,
   data,
   color = "var(--color-muted-teal-500)",
+  metricLabel = "Value",
+  formatter = (v) => v.toString(),
 }: LineChartProps) {
   const [hoveredIndex, setHoveredIndex] = React.useState<number | null>(null);
   const containerRef = React.useRef<HTMLDivElement>(null);
@@ -134,7 +138,9 @@ export function LineChart({
                 chartWidth={chartWidth}
                 padding={padding}
                 label={data[hoveredIndex].label}
+                metricLabel={metricLabel}
                 value={data[hoveredIndex].value}
+                formattedValue={formatter(data[hoveredIndex].value)}
                 color={color}
               />
             )}
@@ -163,7 +169,9 @@ function Tooltip({
   chartWidth,
   padding,
   label,
+  metricLabel,
   value,
+  formattedValue,
   color,
 }: {
   x: number;
@@ -171,7 +179,9 @@ function Tooltip({
   chartWidth: number;
   padding: number;
   label: string;
+  metricLabel: string;
   value: number;
+  formattedValue: string;
   color: string;
 }) {
   const tooltipWidth = 140;
@@ -198,8 +208,8 @@ function Tooltip({
       <text
         x={clampedX + 10}
         y={clampedY + 18}
-        fill="var(--color-dark-slate-grey-800)"
-        fontSize="12"
+        fill="var(--color-dark-slate-grey-600)"
+        fontSize="14"
         fontWeight="600"
       >
         {label}
@@ -207,10 +217,11 @@ function Tooltip({
       <text
         x={clampedX + 10}
         y={clampedY + 33}
-        fill="var(--color-dark-slate-grey-600)"
+        fill="var(--color-dark-slate-grey-800)"
         fontSize="12"
+        fontWeight="500"
       >
-        {value}
+        {metricLabel} : {formattedValue}
       </text>
       <circle cx={x} cy={y} r={6} fill="white" stroke={color} strokeWidth={2} />
     </g>
