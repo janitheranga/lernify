@@ -12,6 +12,34 @@ interface DashboardHeaderProps {
 
 export function DashboardHeader({ userType }: DashboardHeaderProps) {
   const [isProfileOpen, setIsProfileOpen] = React.useState(false);
+  const [isNotificationsOpen, setIsNotificationsOpen] = React.useState(false);
+  const notificationsRef = React.useRef<HTMLDivElement | null>(null);
+  const profileRef = React.useRef<HTMLDivElement | null>(null);
+
+  React.useEffect(() => {
+    const handleClickOutside = (event: MouseEvent) => {
+      const target = event.target as Node;
+
+      if (
+        isNotificationsOpen &&
+        notificationsRef.current &&
+        !notificationsRef.current.contains(target)
+      ) {
+        setIsNotificationsOpen(false);
+      }
+
+      if (
+        isProfileOpen &&
+        profileRef.current &&
+        !profileRef.current.contains(target)
+      ) {
+        setIsProfileOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [isNotificationsOpen, isProfileOpen]);
 
   return (
     <motion.header
@@ -57,17 +85,56 @@ export function DashboardHeader({ userType }: DashboardHeaderProps) {
 
           {/* Right Actions */}
           <div className="flex items-center gap-4">
-            <motion.button
-              className="p-2 rounded-full hover:bg-accent transition-colors cursor-pointer relative"
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-            >
-              <Bell className="w-5 h-5" />
-              <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
-            </motion.button>
+            {/* Notifications */}
+            <div className="relative" ref={notificationsRef}>
+              <motion.button
+                className="p-2 rounded-full hover:bg-accent transition-colors cursor-pointer relative"
+                whileHover={{ scale: 1.05 }}
+                whileTap={{ scale: 0.95 }}
+                aria-haspopup="true"
+                aria-expanded={isNotificationsOpen}
+                onClick={() => setIsNotificationsOpen((prev) => !prev)}
+              >
+                <Bell className="w-5 h-5" />
+                <span className="absolute top-1 right-1 w-2 h-2 bg-red-500 rounded-full" />
+              </motion.button>
+
+              {isNotificationsOpen && (
+                <motion.div
+                  initial={{ opacity: 0, y: 8 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: 8 }}
+                  className="absolute right-0 mt-2 w-72 bg-white rounded-lg shadow-lg border overflow-hidden"
+                >
+                  <div className="px-4 py-3 border-b">
+                    <p className="text-sm font-semibold">Notifications</p>
+                    <p className="text-xs text-muted-foreground">
+                      You&apos;re all caught up
+                    </p>
+                  </div>
+                  <div className="max-h-64 overflow-y-auto">
+                    {[
+                      "New course: Advanced React just dropped",
+                      "Reminder: Live session starts in 30 minutes",
+                      "Certification: Your React Basics certificate is ready",
+                    ].map((item) => (
+                      <div
+                        key={item}
+                        className="px-4 py-3 text-sm hover:bg-accent/60 transition-colors cursor-pointer"
+                      >
+                        {item}
+                      </div>
+                    ))}
+                  </div>
+                  <div className="px-4 py-2 border-t text-center text-sm text-primary hover:underline cursor-pointer">
+                    View all
+                  </div>
+                </motion.div>
+              )}
+            </div>
 
             {/* Profile Dropdown */}
-            <div className="relative">
+            <div className="relative" ref={profileRef}>
               <motion.button
                 onClick={() => setIsProfileOpen(!isProfileOpen)}
                 className="flex items-center gap-2 p-2 rounded-full hover:bg-accent transition-colors cursor-pointer"
